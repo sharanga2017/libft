@@ -1,4 +1,19 @@
-#include "libft.h"
+// #include "libft.h"
+
+#include <unistd.h>
+
+void	ft_putstr(char *str)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (*(str + i))
+		i++;
+	write(1, str, i);
+}
+
+
+
 
 int	ft_atoi(char *str)
 {
@@ -12,6 +27,7 @@ int	ft_atoi(char *str)
 		str++;
 	if (*str == '-')
 		sign = -1;
+		str++;
 	while ((*str == '-') || (*str == '+'))
     {
         if( *str == '-')
@@ -30,11 +46,11 @@ int	ft_atoi(char *str)
 }
 
 
-
+#include <stdio.h>
 
 int main()
 {
-    char *str = {"64545464iyiyiyuyi"};
+    char *str = {"---++++---++-+++64545464iyiyiyuyi"};
 
-    ft_putstr(str);
+    printf("%d \n",ft_atoi(str));
 }
